@@ -13,10 +13,10 @@ export default function CreateIngradientModal(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     ingradientStore.createIngradient(ingradient);
-    props.closeModal();
+    props.closeModall();
   };
   return (
-    <Modal centered show={props.isOpen} onHide={props.closeModal}>
+    <Modal centered show={props.isOpenn} onHide={props.closeModall}>
       <Modal.Header closeButton>
         <Modal.Title>Create a Ingradient</Modal.Title>
       </Modal.Header>
