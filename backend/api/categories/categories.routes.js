@@ -6,7 +6,8 @@ const {
   CategoryUpdate,
   CategoryDelete,
   CategoryCreate,
-  fetchCategory
+  fetchCategory,
+  recipeCreate
 } = require('./categories.controllers');
 
 router.param("CategoryId", async(req, res, next, CategoryId)=>{
@@ -24,8 +25,9 @@ router.get('/', CategoriesGet);
 router.get('/:CategoryId', fetchCategory);
 
 router.post('/', CategoryCreate);
+router.post('/:categoryId/recipe', recipeCreate);
 
-router.delete('/:CategorytId', CategoryDelete);
+router.delete('/:CategoryId', CategoryDelete);
 
 router.put('/:CategoryId', CategoryUpdate);
 

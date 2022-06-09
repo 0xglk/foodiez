@@ -1,12 +1,11 @@
 const express = require('express');
 const app = express();
 const cors = require("cors");
+const connectDb = require('./database');
 
 const categoriesRoutes = require('./api/categories/categories.routes');
 const RecipesRoutes = require('./api/recipes/recipes.routes');
 const IngredientRoutes = require('./api/Ingredient/Ingredient.routes');
-
-const connectDb = require('./database');
 
 
 //middleware

@@ -1,5 +1,6 @@
 const Category = require('../../models/Category');
-
+const Recipe = require('../../models/Recipe');
+const Ingredient = require('../../models/Ingredient');
 exports.CategoryCreate = async (req, res, next) => {
   try {
     const newPost = await Category.create(req.body);
@@ -12,7 +13,7 @@ exports.CategoryCreate = async (req, res, next) => {
 
 exports.fetchCategory = async(CategoryId, next)  => {
   try {
-    const findPost = await Category.findById(CategoryId);
+    const findPost = await Category.findById(CategoryId).populate('Recipe');
     // res.status(201).json(findPost);
     return findPost
   } catch (error) {
@@ -59,5 +60,36 @@ exports.CategoriesGet = async (req, res, next)  => {
   } catch (error) {
     //using next 
     return next(error);
+  }
+};
+
+exports.recipeCreate = async (req, res, next) => {
+  const { categoryId } = req.params;
+  req.body.Category = categoryId
+  var Recipe_values = {
+    title: req.body.title,
+    image: req.body.image,
+    des: req.body.des,
+  };
+  try {
+    const newrecipe = await Recipe.create(Recipe_values);
+    await Category.findByIdAndUpdate(categoryId, {
+        $push: { recipe: newrecipe._id }, 
+    });
+    // const newingredient = await Ingredient.create({ingradient: req.body.ingredient});
+    await Recipe.findByIdAndUpdate(newrecipe._id, {
+        $push: { ingredient: req.body.ingredient, Category: categoryId  }, 
+    });
+    const values = {
+      title: req.body.title,
+      image: req.body.image,
+      des: req.body.des,
+      recipe: newrecipe._id,
+      ingredient: req.body.ingredient,
+      Category: categoryId,
+    };
+    res.status(201).json(values);
+  } catch (error) {
+    next(error);
   }
 };
