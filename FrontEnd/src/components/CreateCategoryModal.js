@@ -4,7 +4,6 @@ import categoryStore from '../stores/categoryStore';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function CreateCategoryModal(props) {
-  // const [checkedd, setCheckedd] = useState([]);
   const [category, setBook] = useState({
     name: '',
   });

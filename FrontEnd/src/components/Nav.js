@@ -9,6 +9,10 @@ function Nav() {
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
 
+
+  const [isOpenn, setIsOpenn] = useState(false);
+  const closeModall = () => setIsOpenn(false);
+  const openModall = () => setIsOpenn(true);
   return (
   <>
   <div className="sidenavright">
@@ -19,8 +23,8 @@ function Nav() {
           <CreateCategoryModal isOpen={isOpen} closeModal={closeModal} />
         </button>
         <button>
-          <span onClick={openModal}>Add Ingradient</span>
-          <CreateIngradientModal isOpen={isOpen} closeModal={closeModal} />
+          <span onClick={openModall}>Add Ingradient</span>
+          <CreateIngradientModal isOpenn={isOpenn} closeModall={closeModall} />
         </button>
         {/* <button>
           <span onClick={openModal}>Add Recipe</span>
