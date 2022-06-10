@@ -3,8 +3,8 @@ import axios from 'axios';
 
 class IngradientStore {
   ingradient = [];
-  msg; 
-  
+  msg;
+
   constructor() {
     makeObservable(this, {
       ingradient: observable,
@@ -15,16 +15,15 @@ class IngradientStore {
 
   fetchIngradient = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8000/ingredient'
-      );
+      const response = await axios.get('http://localhost:8000/ingredient');
+
       this.ingradient = response.data;
     } catch (error) {
       console.log('fetchIngradient', error);
     }
   };
 
-  createIngradient  = async (ingredient) => {
+  createIngradient = async (ingredient) => {
     try {
       const response = await axios.post(
         'http://localhost:8000/ingredient',
@@ -35,7 +34,6 @@ class IngradientStore {
       console.log('createIngradient', error);
     }
   };
-
 }
 
 const ingradientStore = new IngradientStore();
