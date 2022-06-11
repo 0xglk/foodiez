@@ -16,7 +16,6 @@ export default function CreateCategoryModal(props) {
     props.closeModal();
   };
 
-
   return (
     <Modal centered show={props.isOpen} onHide={props.closeModal}>
       <Modal.Header closeButton>

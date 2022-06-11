@@ -1,15 +1,14 @@
-
 html {
-    box-sizing:border-box
+  box-sizing: border-box;
 }
 * {
-    box-sizing: border-box;
-  }
-  html,
-  body {
-    height: 100%;
-  }
-.app{
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+.app {
   background-color: #000000;
 }
 .sidenav {
@@ -23,7 +22,7 @@ html {
   overflow-x: hidden;
   padding-top: 20px;
 }
-  
+
 .sidenav hr {
   display: inline-block;
   width: 200px;
@@ -32,7 +31,7 @@ html {
 .sidenav h5 {
   display: inline-block;
   padding-top: 2px;
-  padding-left:10%;
+  padding-left: 10%;
   font-size: 13px;
 }
 .sidenav a {
@@ -66,7 +65,7 @@ html {
 }
 
 .sidenav a:hover {
-  color: #A9C0D6;
+  color: #a9c0d6;
 }
 
 .sidenavright {
@@ -94,7 +93,7 @@ html {
   border: none;
   color: white;
   padding: 6px 10px;
-  border-radius:2px;
+  border-radius: 2px;
   text-align: center;
   text-decoration: none;
   display: block;
@@ -115,54 +114,57 @@ html {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.recipe_card{
+.recipe_card {
   background-color: #ffffff;
   height: 220px;
   border-radius: 10px;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-top:10px;
+  margin-top: 10px;
 }
-.recipe_card img{
+.recipe_card img {
   position: absolute;
   height: 220px;
   width: 250px;
-  border-radius: 10px 0 0 10px ;
-
+  border-radius: 10px 0 0 10px;
 }
-.recipe_text_border{
+.recipe_text_border {
   margin-left: 270px;
 }
-.recipe_text_border h3{
+.recipe_text_border h3 {
   text-transform: uppercase;
   padding-top: 15px;
   font-size: 25px;
 }
-.recipe_text_border p{
+.recipe_text_border p {
   font-size: 12px;
   width: 90%;
   padding-top: 20px;
-  color: #9B9EA4;
-  }
-.recipe_text_border span{
+  color: #9b9ea4;
+}
+.recipe_text_border span {
   text-transform: capitalize;
   position: absolute;
   margin-top: -10px;
   font-size: 12px;
 }
-.recipe_card_by{
+.recipe_card_by {
   margin-left: 270px;
 }
-.recipe_card_by img{
+.recipe_card_by img {
   display: inline-block;
   margin-top: 20px;
   width: 40px;
   height: 40px;
 }
-.recipe_card_by span{
+.recipe_card_by span {
   text-transform: capitalize;
   display: inline-block;
   font-size: 12px;
