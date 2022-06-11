@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function CreateRecipeModal(props) {
   const [recipe, setRecipe] = useState({
     title: '',
-    Category: '',
+    Category: {},
     image: '',
     des: '',
     ingredient: [],
@@ -31,16 +31,22 @@ export default function CreateRecipeModal(props) {
   };
   const [value, setValue] = useState('Select a Category');
   const handleSelect = (e) => {
-    console.log(e);
+    // console.log(e);
     setValue(e);
+    const categoryFound = categoryStore.Category.find((c) => c.name === value);
+    setRecipe({ ...recipe, Category: categoryFound });
   };
   const categoryList = categoryStore.Category.map((e) => e.name);
-  const ingradientsList = ingradientStore.ingradient.map((e) => e.ingradient);
-  const checkedArr = [];
+  const ingradientsList = ingradientStore.ingradient.map((e) => e.ingredient);
+  let checkedArr = [];
   const handleCheck = (event) => {
-    checkedArr.push(event.target.value);
-    // setCheckedd(checkedd.push(event.target.value));
-    console.log(checkedArr);
+    if (event.target.checked == false) {
+      checkedArr = checkedArr.filter((e) => e != event.target.value);
+    } else {
+      checkedArr.push(event.target.value);
+    }
+    // console.log(checkedArr);
+    setRecipe({ ...recipe, ingredient: checkedArr });
   };
 
   return (
@@ -69,7 +75,6 @@ export default function CreateRecipeModal(props) {
                 <Dropdown.Item eventKey={c}>{c}</Dropdown.Item>
               ))}
             </DropdownButton>
-            <Form.Control type="text" name="Category" onChange={handleChange} />
           </InputGroup>
           <InputGroup>
             <InputGroup.Text>Ingredients</InputGroup.Text>
