@@ -4,6 +4,8 @@ import logo from './../img/logo.png';
 import CategoryStore from './../stores/categoryStore';
 import recipesStore from './../stores/recipesStore';
 import RecipesItem from './RecipesItem';
+import Nav from './Nav';
+import authStore from "../stores/authStore";
 function Recipes() {
   const [categoryy, setcategory] = useState('');
   const CategoryList = CategoryStore.Category.map((Category) =>
@@ -11,11 +13,12 @@ function Recipes() {
 );
 
   const recipeList = recipesStore.recipes.filter((recipe) => 
-  (!categoryy) ? (recipe) :  (recipe.Category === categoryy)).map((recipe) =>
+  (!categoryy)?  (recipe.createdby === authStore.user._id ) :  (recipe.createdby === authStore.user._id && recipe.Category === categoryy )).map((recipe) =>
   <RecipesItem recipe = {recipe} />
     );
   return (
     <>
+      <Nav />
     <div className="sidenav">
       <img alt="logo" src={logo}/>
       <h3>Foodiez</h3>
@@ -25,7 +28,11 @@ function Recipes() {
             {CategoryList}
     </div>
     <div>
-          {recipeList}
+    <div className="main">
+    <h2>My Recipes</h2>
+    {recipeList}
+  </div>
+
     </div>
     </>
   );

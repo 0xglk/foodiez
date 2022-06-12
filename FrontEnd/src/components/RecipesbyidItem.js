@@ -3,11 +3,12 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import avater from './../img/avatar.png'
 import RecipesCategory from './RecipesCategory';
-function RecipesItem({ recipe }) {
+function RecipesItem({ recipeid }) {
+  console.log(recipeid);
   return (
     <>
-   <Link to={`/RecipesDetail/${recipe._id}`}> 
-  <div> 
+    {/* <Link to={`/Details/${recipe._id}`}> */}
+  {/* <div> 
     <div className="recipe_card">
       <img alt="dish" src={ recipe.image }/>
       <div className="recipe_text_border">
@@ -20,8 +21,8 @@ function RecipesItem({ recipe }) {
         <span>{recipe.createdby_name}</span>
       </div>
     </div>
-    </div>
-  </Link> 
+    </div> */}
+  {/* </Link> */}
   </>
   );
 }

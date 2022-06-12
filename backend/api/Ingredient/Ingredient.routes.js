@@ -6,7 +6,8 @@ const {
   IngredientUpdate,
   IngredientDelete,
   IngredientCreate,
-  fetchIngredient
+  fetchIngredient,
+  IngredientAvailable
 } = require('./Ingredient.controllers');
 
 router.param("IngredientId", async(req, res, next, IngredientId)=>{
@@ -22,6 +23,8 @@ if(Ingredient) {
 
 router.get('/', IngredientGet);
 router.get('/:IngredientId', fetchIngredient);
+
+router.get('/find/all', IngredientAvailable);
 
 router.post('/', IngredientCreate);
 
