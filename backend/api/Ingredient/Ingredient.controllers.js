@@ -61,3 +61,13 @@ exports.IngredientGet = async (req, res, next)  => {
     return next(error);
   }
 };
+
+exports.IngredientAvailable = async (req, res, next)  => {
+  try {
+    const posts = await Ingredient.find({}).select('ingredient -_id');
+    res.json(posts);
+  } catch (error) {
+    //using next 
+    return next(error);
+  }
+};

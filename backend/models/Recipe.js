@@ -7,6 +7,8 @@ const RecipeSchema = new Schema({
   image: String,
   des: String,
   ingredient:[String],
+  createdby: String,
+  createdby_name: String,
 });
 
 module.exports = model('Recipe', RecipeSchema);

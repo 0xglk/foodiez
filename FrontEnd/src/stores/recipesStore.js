@@ -3,11 +3,12 @@ import axios from 'axios';
 
 class RecipesStore {
   recipes = [];
-  msg; 
+
   constructor() {
     makeObservable(this, {
       recipes: observable,
       fetchRecipes: action,
+      createRecipe: action,
     });
   }
 
@@ -22,15 +23,15 @@ class RecipesStore {
     }
   };
 
-  createBook = async (Recipe) => {
+  createRecipe = async (Recipe) => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/recipe',
+        `http://localhost:8000/category/${Recipe.Category}/recipe`,
         Recipe
       );
       this.recipes = [...this.recipes, response.data];
     } catch (error) {
-      console.log('createBook', error);
+      console.log('createRecipe', error);
     }
   };
 

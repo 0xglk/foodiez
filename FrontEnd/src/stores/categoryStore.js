@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class CategoryStore {
   Category = [];
-  msg;
+
   constructor() {
     makeObservable(this, {
       Category: observable,

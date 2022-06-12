@@ -1,6 +1,7 @@
 const Category = require('../../models/Category');
 const Recipe = require('../../models/Recipe');
 const Ingredient = require('../../models/Ingredient');
+const User = require('../../models/User');
 exports.CategoryCreate = async (req, res, next) => {
   try {
     const newPost = await Category.create(req.body);
@@ -70,6 +71,8 @@ exports.recipeCreate = async (req, res, next) => {
     title: req.body.title,
     image: req.body.image,
     des: req.body.des,
+    createdby: req.body.createdby,
+    createdby_name: req.body.createdby_name
   };
   try {
     const newrecipe = await Recipe.create(Recipe_values);
@@ -78,8 +81,20 @@ exports.recipeCreate = async (req, res, next) => {
     });
     // const newingredient = await Ingredient.create({ingradient: req.body.ingredient});
     await Recipe.findByIdAndUpdate(newrecipe._id, {
-        $push: { ingredient: req.body.ingredient, Category: categoryId  }, 
+        $push: { ingredient: req.body.ingredient, Category: categoryId }, 
     });
+     await User.findByIdAndUpdate(req.body.createdby, {
+        $push: {  recipe: newrecipe._id }, 
+    });
+    //   Ingredient.findOneAndUpdate({ ingredient: element }, {
+    //     $push: { recipe: newrecipe._id }, 
+    // }
+    // );
+    await req.body.ingredient.map ( element => {
+     Ingredient.findOneAndUpdate({ingredient: element },{$push: { recipe: [newrecipe._id]}}, function(err, docs) {
+      });
+    });
+    
     const values = {
       title: req.body.title,
       image: req.body.image,
@@ -87,6 +102,8 @@ exports.recipeCreate = async (req, res, next) => {
       recipe: newrecipe._id,
       ingredient: req.body.ingredient,
       Category: categoryId,
+      createdby: req.body.createdby,
+      createdby_name: req.body.createdby_name,
     };
     res.status(201).json(values);
   } catch (error) {
