@@ -1,15 +1,15 @@
-
 html {
-    box-sizing:border-box
+  box-sizing: border-box;
 }
 * {
-    box-sizing: border-box;
-  }
-  html,
-  body {
-    height: 100%;
-  }
-.app{
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+.app {
   background-color: #000000;
 }
 .sidenav {
@@ -23,7 +23,7 @@ html {
   overflow-x: hidden;
   padding-top: 20px;
 }
-  
+
 .sidenav hr {
   display: inline-block;
   width: 200px;
@@ -32,7 +32,7 @@ html {
 .sidenav h5 {
   display: inline-block;
   padding-top: 2px;
-  padding-left:10%;
+  padding-left: 10%;
   font-size: 13px;
 }
 .sidenav a {
@@ -66,7 +66,7 @@ html {
 }
 
 .sidenav a:hover {
-  color: #A9C0D6;
+  color: #a9c0d6;
 }
 
 .sidenavright {
@@ -94,7 +94,7 @@ html {
   border: none;
   color: white;
   padding: 6px 10px;
-  border-radius:2px;
+  border-radius: 2px;
   text-align: center;
   text-decoration: none;
   display: block;
@@ -112,65 +112,69 @@ html {
   margin-right: 260px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
+  text-transform: capitalize;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.recipe_card{
+.recipe_card {
   background-color: #ffffff;
   height: 220px;
   border-radius: 10px;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-top:10px;
+  margin-top: 10px;
 }
-.recipe_card img{
+.recipe_card img {
   position: absolute;
   height: 220px;
   width: 250px;
-  border-radius: 10px 0 0 10px ;
-
+  border-radius: 10px 0 0 10px;
 }
-.recipe_text_border{
+.recipe_text_border {
   margin-left: 270px;
 }
-.recipe_text_border h3{
+.recipe_text_border h3 {
   text-transform: uppercase;
   padding-top: 15px;
   font-size: 25px;
 }
-.recipe_text_border p{
+.recipe_text_border p {
   font-size: 12px;
   width: 90%;
   padding-top: 20px;
-  color: #9B9EA4;
-  }
-.recipe_text_border span{
+  color: #9b9ea4;
+}
+.recipe_text_border span {
   text-transform: capitalize;
   position: absolute;
   margin-top: -10px;
   font-size: 12px;
 }
-.recipe_card_by{
+.recipe_card_by {
   margin-left: 270px;
 }
-.recipe_card_by img{
+.recipe_card_by img {
   display: inline-block;
   margin-top: 20px;
   width: 40px;
   height: 40px;
 }
-.recipe_card_by span{
+.recipe_card_by span {
   text-transform: capitalize;
   display: inline-block;
   font-size: 12px;
   margin-top: 30px;
   margin-left: 40px;
 }
-.classic{
-  border: #a29f9f 1px solid ;
+.classic {
+  border: #a29f9f 1px solid;
   border-radius: 5px;
   width: 25%;
   margin-top: 25px;
@@ -178,39 +182,39 @@ html {
   height: 300px;
   overflow: scroll;
 }
-.classic h4{
-font-size: 15px;
-position: absolute;
-margin-top: -40px;
-margin-left: -20px;
+.classic h4 {
+  font-size: 15px;
+  position: absolute;
+  margin-top: -40px;
+  margin-left: -20px;
 }
-.classic_checkboxs{
+.classic_checkboxs {
   margin-top: -10px;
 }
 .classic_checkboxs {
   margin-top: -10px;
 }
-.controle_bootstrap{
+.controle_bootstrap {
   padding-top: 5px;
 }
-.control_right_shoulder{
+.control_right_shoulder {
   position: absolute;
   margin-left: 200px;
   margin-top: -300px;
   width: 71%;
 }
-.control_right_shoulder_textarea{
+.control_right_shoulder_textarea {
   position: absolute;
   margin-left: 200px;
   margin-top: -250px;
 }
-.control_right_shoulder_textarea textarea{
+.control_right_shoulder_textarea textarea {
   width: 128%;
   height: 250px;
 }
-a{
+a {
   text-decoration: none;
-      color: inherit;
+  color: inherit;
 }
 a:link {
   text-decoration: none;
@@ -219,38 +223,78 @@ a:link {
 a:hover {
   color: rgb(0, 0, 0);
 }
-.sidenavright button{
+.sidenavright button {
   background-color: #747474;
   border: none;
   color: white;
-  width:240px;
+  width: 240px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
 }
-.sidenavright h3{
+.sidenavright button:hover {
+  filter: contrast(1500%);
+}
+.sidenavright h3 {
   font-size: 20px;
   padding-left: 10px;
   text-align: center;
   padding-top: 8px;
-  width:240px ;
+  width: 240px;
   height: 40px;
   color: #595959;
   text-transform: capitalize;
-  border-radius: 30px  0px 5px 30px ;
+  border-radius: 30px 0px 5px 30px;
   background-color: #aeaeae4e;
   display: inline-block;
 }
-.sidenavright img{
-position: absolute;
-  width:40px ;
+.sidenavright img {
+  position: absolute;
+  width: 40px;
   height: 40px;
-
 }
-.red_button{
-  background-color: #ff0000 !important
+.red_button {
+  background-color: #e41313 !important;
 }
-.control_buton_link{
+.red_button:hover {
+  filter: contrast(2000%);
+}
+.control_buton_link {
   margin-left: -10px;
+}
+
+.recipe-detail-main {
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+.recipe-detail-left {
+  border-radius: 10px;
+  height: 400px;
+}
+.recipe-detail-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-left: 70px;
+  font-size: 30px;
+}
+
+.link-text {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-text:hover {
+  color: #ffc71c;
+}
+.left-nav-button:hover {
+  background-color: #ffc71c;
+}
+.cate {
+  font-size: 22px;
+}
+.Home-button {
+  padding-top: 20px;
 }
